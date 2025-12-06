@@ -239,23 +239,26 @@ c2 = {
 				id = cymria.7
 			}
 			set_global_flag = new_sun
-			every_province = {
-				limit = {
-					has_province_modifier = harsh_winter
+			tooltip = end_winter_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						has_province_modifier = harsh_winter
+					}
+					remove_province_modifier = harsh_winter
 				}
-				remove_province_modifier = harsh_winter
-			}
-			every_province = {
-				limit = {
-					has_province_modifier = harsher_winter
+				every_province = {
+					limit = {
+						has_province_modifier = harsher_winter
+					}
+					remove_province_modifier = harsher_winter
 				}
-				remove_province_modifier = harsher_winter
-			}
-			every_province = {
-				limit = {
-					has_province_modifier = harshest_winter
+				every_province = {
+					limit = {
+						has_province_modifier = harshest_winter
+					}
+					remove_province_modifier = harshest_winter
 				}
-				remove_province_modifier = harshest_winter
 			}
 		}
 	}
