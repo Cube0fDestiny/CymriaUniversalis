@@ -1,6 +1,3 @@
-
-##BranchEnd 0
-##BranchStart 1
 second_bro = {
 	slot = 2
 	generic = no
@@ -11,60 +8,45 @@ second_bro = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	gather_the_people = {
 		icon = mission_unite_home_region
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 2
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			check_variable = {
-			which = peopleVar
-			value = 5
-		}
+				which = peopleVar
+				value = 5
+			}
 		}
 		effect = {
-    change_variable = {
-        which = brodenVar
-        value = 1
-    }
+			change_variable = {
+				which = brodenVar
+				value = 1
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	find_suitable_places = {
 		icon = mission_unite_home_region
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 4
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			total_development = 15
 		}
 		effect = {
-    change_variable = {
-        which = brodenVar
-        value = 1
-    }
+			change_variable = {
+				which = brodenVar
+				value = 1
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	a_secure_home = {
 		icon = mission_unite_home_region
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 6
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			is_capital_of = ROOT
 		}
 		trigger = {
 			capital_scope = {
@@ -72,18 +54,14 @@ second_bro = {
 			}
 		}
 		effect = {
-    change_variable = {
-        which = brodenVar
-        value = 1
-    }
+			change_variable = {
+				which = brodenVar
+				value = 1
+			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 1
-##BranchStart 2
+
 second_bro3 = {
 	slot = 3
 	generic = no
@@ -94,53 +72,37 @@ second_bro3 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	organize_power_transfer = {
 		icon = mission_unite_home_region
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	legitimacy = 100
+			legitimacy = 100
 		}
 		effect = {
-    change_variable = {
-        which = brodenVar
-        value = 1
-    }
+			change_variable = {
+				which = brodenVar
+				value = 1
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	organize_new_structures = {
 		icon = mission_unite_home_region
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 5
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			stability = 3
 		}
 		effect = {
-    change_variable = {
-        which = brodenVar
-        value = 1
-    }
+			change_variable = {
+				which = brodenVar
+				value = 1
+			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 2
-##BranchStart 3
+
 second_bro4 = {
 	slot = 4
 	generic = no
@@ -151,78 +113,54 @@ second_bro4 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	reclits_of_past = {
 		icon = mission_unite_home_region
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 2
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			check_variable = {
-			which = relictsVar
-			value = 5
-		}			
+				which = relictsVar
+				value = 5
+			}
 		}
 		effect = {
-    change_variable = {
-        which = brodenVar
-        value = 1
-    }
+			change_variable = {
+				which = brodenVar
+				value = 1
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	gather_equipment = {
 		icon = mission_unite_home_region
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 4
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 		 	army_professionalism = 0.35 
 		}
 		effect = {
-    change_variable = {
-        which = brodenVar
-        value = 1
-    }
+			change_variable = {
+				which = brodenVar
+				value = 1
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	strike_fear = {
 		icon = mission_unite_home_region
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 6
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			check_variable = {
-			which = killedHarpyVar
-			value = 5
-		}
+				which = killedHarpyVar
+				value = 5
+			}
 		}
 		effect = {
-    change_variable = {
-        which = brodenVar
-        value = 1
-    }
+			change_variable = {
+				which = brodenVar
+				value = 1
+			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 3
-
-##BranchEnd 4

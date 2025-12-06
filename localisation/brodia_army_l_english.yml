@@ -1,4 +1,9 @@
 ﻿l_english:
+ killedHarpyVar:0 "Killed Harpies"
+ brodenVar:0 "Rebuilding Broden"
+ peopleVar:0 "Survivors Found"
+ relictsVar:0 "Heirlooms Found"
+ 
  gather_the_people_title:0 "Find Survivors"
  gather_the_people_desc:0 "Our land is devastated, and wherever we turn, we see death and decay. Yet many have survived; we just need to find them and convince them to follow us."
  find_suitable_places_title:0 "Find a new Home"
