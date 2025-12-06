@@ -54,6 +54,7 @@
  execute_all_nobles_title:0 "Execute all Nobles"
  execute_all_nobles_desc:0 "There will be no masters and no rule of blood. In the new age the noble bloodlines will have no special place; the revolution — awakened by the newly freed — will hold them to account and ensure they answer for their deeds under a fair and impartial law."
  demolish_their_palaces_title:0 "Burn the Palaces"
+ demolish_their_palaces.tooltip:0 "Gain 10 devastation in every owned province"
  demolish_their_palaces_desc:0 "Where there are no more nobles, there is also no reason to leave their palaces, manor houses, and other monuments standing. They will be burned and torn down so that their tyranny ends and nothing remains to remind anyone of them."
  secure_the_rest_of_the_empire_title:0 "Secure the Rest of the Empire"
  secure_the_rest_of_the_empire_desc:0 ""

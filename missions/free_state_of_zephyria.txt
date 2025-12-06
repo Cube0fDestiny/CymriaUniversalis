@@ -1,4 +1,3 @@
-##BranchStart 0
 fs1 = {
 	slot = 1
 	generic = no
@@ -9,162 +8,124 @@ fs1 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	liberate_property = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 1
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	stability = 2
+			stability = 2
 		}
 		effect = {
-			 	add_years_of_income = 1
+			add_years_of_income = 1
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	end_servitude = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			liberate_property
 		}
 		position = 2
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			government_reform_progress = 100
 			republican_tradition = 90
 		}
 		effect = {
-			 	change_government_reform_progress = -100
-				add_country_modifier = { 
+			change_government_reform_progress = -100
+			add_country_modifier = {
 				name = freed_people
-				duration = -1  
-
+				duration = -1
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	free_farmer_and_traders = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			end_servitude
 		}
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			monthly_income = 100
 		}
 		effect = {
-			 	add_splendor = 800
+			add_splendor = 800
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	peoples_army = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 5
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	land_forcelimit = 200
+			land_forcelimit = 200
 		}
 		effect = {
 			define_advisor = {
-    type = quartermaster
-    name = "Aryeh Ais"
-    skill = 3
-	discount = yes
-}
-
- 	add_mil_power = 100
+				type = quartermaster
+				name = "Aryeh Ais"
+				skill = 3
+				discount = yes
+			}
+ 			add_mil_power = 100
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	free_people_serve = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			peoples_army
 		}
 		position = 6
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	army_professionalism = 0.2
+			army_professionalism = 0.2
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = free_serve
-				duration = 6500  
-			}			
+				duration = 7300 #20 years
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	levee_en_masse_fs = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			free_people_serve
 		}
 		position = 7
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			OR = {
-			barracks = 30
-			training_fields = 30
+				barracks = 30
+				training_fields = 30
 			}
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = mercieless_attack
-				duration = 9000  
-			}				
+				duration = 9125 #25 years
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	mass_warfare = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			levee_en_masse_fs
 		}
 		position = 8
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			soldier_households = 30
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = mass_war
-				duration = -1  
-			}	
+				duration = -1
+			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 0
-##BranchStart 1
+
 fs2 = {
 	slot = 2
 	generic = no
@@ -175,7 +136,6 @@ fs2 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	build_new_people = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -183,7 +143,8 @@ fs2 = {
 		}
 		position = 2
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			culture_group = ROOT
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			is_year = 1500
@@ -193,17 +154,13 @@ fs2 = {
 			add_republican_tradition = 25
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	educate_peasantry = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			build_new_people
 		}
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			OR = {
 				innovativeness = 25
@@ -217,134 +174,100 @@ fs2 = {
 			add_mil_power = 150
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	no_classes = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			execute_all_nobles
 		}
 		position = 4
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	
-
 			estate_loyalty = {
 				estate = estate_burghers
 				loyalty = 55
 			}
-			
-			 	
-
-				estate_loyalty = {
-					estate = estate_church
-					loyalty = 50
-				}
+			estate_loyalty = {
+				estate = estate_church
+				loyalty = 50
+			}
 		}
 		effect = {
-			 	custom_tooltip = disable_estate
-				add_country_modifier = { 
+			custom_tooltip = disable_estate
+			add_country_modifier = {
 				name = estate_less
-				duration = -1  
-			}					
+				duration = -1
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	meritocratic_scoeity = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			no_classes
 		}
 		position = 5
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			republican_tradition = 100
-			
-			
- 	
-
-custom_trigger_tooltip = {
-	tooltip = 3_LVL5_ADV
-	
-employed_advisor = {
-	category = ADM
-        skill = 5
-
-}
-
-employed_advisor = {
-	category = DIP
-        skill = 5
-
-}
-
-employed_advisor = {
-	category = MIL
-        skill = 5
-
-}	
-	}
-}			 	
-
+			custom_trigger_tooltip = {
+				tooltip = 3_LVL5_ADV
+				employed_advisor = {
+					category = ADM
+					skill = 5
+				}
+				employed_advisor = {
+					category = DIP
+					skill = 5
+				}
+				employed_advisor = {
+					category = MIL
+					skill = 5
+				}
+			}
+		}
 		effect = {
-		add_republican_tradition = -50
-				add_country_modifier = { 
+			add_republican_tradition = -50
+			add_country_modifier = {
 				name = nation_of_skill
-				duration = -1  
+				duration = -1
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	meritocratic_officiers = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			peoples_army
 		}
 		position = 6
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			army_professionalism = 0.5
-			
 			has_global_modifier_value = {
-	which = discipline 
-	value = 0.15
-}
+				which = discipline
+				value = 0.15
+			}
 		}
 		effect = {
-			 	add_yearly_manpower = 2
+			add_yearly_manpower = 2
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	ruler_of_strenghts = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			meritocratic_officiers
 		}
 		position = 7
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	army_tradition = 75
+			army_tradition = 75
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = strengh_elader
-				duration = 9000
+				duration = 9125 #25 years
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	revenge_for_polita = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -352,23 +275,22 @@ employed_advisor = {
 		}
 		position = 8
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			OR = {
+				region = the_dead_land_region
+				region = great_flevia_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-								the_dead_land_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-								
-													great_flevia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			the_dead_land_region = { type = all country_or_non_sovereign_subject_holds = ROOT }
+			great_flevia_region = { type = all country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
 			add_prestige = 50
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 1
-##BranchStart 2
+
 fs3 = {
 	slot = 3
 	generic = no
@@ -379,20 +301,15 @@ fs3 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	finish_the_royals = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 1
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			owned_by = ZA3
 		}
 		trigger = {
-			NOT = {
-			exists = ZA3
-			}
+			NOT = { exists = ZA3 }
 		}
 		effect = {
 			zephyria_region = {
@@ -401,11 +318,10 @@ fs3 = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}			
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	free_central_zephyria = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -413,33 +329,26 @@ fs3 = {
 		}
 		position = 2
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = zephyria_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-								zephyria_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			zephyria_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
 			add_stability = 1
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	execute_all_nobles = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			free_central_zephyria
 		}
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			republican_tradition = 95
-			OR = {
 			power_projection = 50
-			
-			}
-
 		}
 		effect = {
 			add_republican_tradition = -25
@@ -449,11 +358,10 @@ fs3 = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_claim = ROOT
-			}			
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	demolish_their_palaces = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -461,53 +369,53 @@ fs3 = {
 		}
 		position = 4
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			OR = {
+				province_id = 868
+				province_id = 872
+				province_id = 811
+			}
 		}
 		trigger = {
 			owns = 868
 			owns = 872
 			owns = 811
-			
 			stability = 1
 			republican_tradition = 100
 		}
 		effect = {
-		868 = {
-			destroy_great_project = {
-    type = the_palace_of_the_phoenix
-}		
-		}
-
-		872 = {
-			destroy_great_project = {
-    type = the_graves_of_emperors
-}		
-		}
-		
-				811 = {
-			destroy_great_project = {
-    type = summerpalace
-}		
-		}
-		
-		every_owned_province = {
-		add_devastation = 10
-		}
-		
-		add_republican_tradition = 25
-		add_stability = 2
-		
-		the_phoenix_empire = {
+			868 = {
+				destroy_great_project = {
+					type = the_palace_of_the_phoenix
+				}
+			}
+			872 = {
+				destroy_great_project = {
+					type = the_graves_of_emperors
+				}
+			}
+			811 = {
+				destroy_great_project = {
+					type = summerpalace
+				}
+			}
+			add_republican_tradition = 25
+			add_stability = 2
+			the_phoenix_empire = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
+			custom_tooltip = demolish_their_palaces.tooltip
+			hidden_effect = {
+				every_owned_province = {
+					add_devastation = 10
+				}
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	secure_the_rest_of_the_empire = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -515,29 +423,26 @@ fs3 = {
 		}
 		position = 5
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			superregion = the_phoenix_empire
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			the_phoenix_empire = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			the_phoenix_empire = { type = all country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
-			add_power_projection = { 
+			add_power_projection = {
 				type = 10_permanent_power_projection
 				amount = 10
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	a_new_free_zephyira = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			secure_the_rest_of_the_empire
 		}
 		position = 6
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			reform_level = 9
 		}
@@ -546,8 +451,7 @@ fs3 = {
 			custom_tooltip = halve_hegemony
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	reclaim_the_steppe = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -555,26 +459,24 @@ fs3 = {
 		}
 		position = 7
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			superregion = the_great_steppe
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			the_great_steppe = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-					
 		}
 		effect = {
 			remove_power_projection = { 
 				key = 10_permanent_power_projection
 				amount = 10
 			}
-
 			add_power_projection = { 
 				type = 25_permanent_power_projection
 				amount = 25
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	topple_almo = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -582,31 +484,24 @@ fs3 = {
 		}
 		position = 8
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			superregion = almodoszra
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-		OR = {
-			almodoszra = { type = all	country_or_non_sovereign_subject_holds = ROOT }		
-			NOT = {
-				hre_size = 1
+			OR = {
+				almodoszra = { type = all country_or_non_sovereign_subject_holds = ROOT }
+				NOT = { hre_size = 1 }
 			}
 		}
-
-		
-		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = eternal_revoluation
 				duration = -1
-			}			
+			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 2
-##BranchStart 3
+
 fs4 = {
 	slot = 4
 	generic = no
@@ -617,55 +512,43 @@ fs4 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	end_old_loyalties = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			free_central_zephyria
 		}
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			NOT = {
-			average_autonomy = 5
-			}
+			NOT = { average_autonomy = 5 }
 		}
 		effect = {
-			 	change_government_reform_progress = 100
+			change_government_reform_progress = 100
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	redefine_religion = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			end_old_loyalties
 		}
 		position = 4
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			OR = {
-							estate_loyalty = {
+				estate_loyalty = {
 					estate = estate_church
 					loyalty = 60
 				}
 				temple = 35
 			}
-				
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = new_state_church
 				duration = -1
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	destroy_milesia = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -673,19 +556,16 @@ fs4 = {
 		}
 		position = 5
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			owned_by = ZA2
 		}
 		trigger = {
-			NOT = {
-			exists = ZA2
-			}			
+			NOT = { exists = ZA2 }			
 		}
 		effect = {
 			add_stability = 1
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	hunt_feys = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -693,24 +573,23 @@ fs4 = {
 		}
 		position = 6
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = milesia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-				milesia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
-				mil_power = 666
-							
+			milesia_region = { type = all country_or_non_sovereign_subject_holds = ROOT }
+			mil_power = 666
 		}
 		effect = {
 			add_mil_power = -666
 			add_republican_tradition = 50
-							add_country_modifier = { 
+			add_country_modifier = {
 				name = fay_hunter
-				duration = 7500
+				duration = 7300 #20 years
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	take_cymria_fs = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -718,31 +597,26 @@ fs4 = {
 		}
 		position = 7
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = green_valley_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			green_valley_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }				
 		}
 		effect = {
-		custom_tooltip = random_dev_cym_zeph
-		hidden_effect = {
-			every_owned_province = {
-			limit = {
-			region = green_valley_region 
+			custom_tooltip = random_dev_cym_zeph
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						region = green_valley_region 
+					}
+					add_random_development = 1
+				}
 			}
-			
-			 	add_random_development = 1
-			}		
-		}
-
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 3
-##BranchStart 4
+
 fs5 = {
 	slot = 5
 	generic = no
@@ -753,25 +627,18 @@ fs5 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	power_of_might = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 1
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	grown_by_development = 150
-			}
+			grown_by_development = 150
+		}
 		effect = {
 			add_republican_tradition = 25
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	blood_of_the_arena = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -779,143 +646,126 @@ fs5 = {
 		}
 		position = 2
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			province_id = 868
 		}
 		trigger = {
 			868 = {
-			has_great_project = {
-	type = the_great_colloseum
-	tier = 3
-}
-		}
+				has_great_project = {
+					type = the_great_colloseum
+					tier = 3
+				}
+			}
 		}
 		effect = {
 			add_prestige = 50
 			add_stability = 2
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	live_by_sword = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			blood_of_the_arena
 		}
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	great_power_rank = 1
-				NOT = {
-				 	great_power_rank = 2
-				}
+			great_power_rank = 1
+			NOT = { great_power_rank = 2 }
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = live_and_die_sword
 				duration = -1
 			}			
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	recultivate_countryside = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 5
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			superregion = the_phoenix_empire
+			OR = {
+				trade_goods = grain
+				trade_goods = fish
+				trade_goods = livestock
+				trade_goods = tea
+			}
 		}
 		trigger = {
-			 	
-
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 20
-					superregion = the_phoenix_empire
-					is_city = yes
-					development = 15
-					OR = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 20
+				superregion = the_phoenix_empire
+				is_city = yes
+				development = 15
+				OR = {
 					trade_goods = grain
 					trade_goods = fish
 					trade_goods = livestock
 					trade_goods = tea
-					}
 				}
+			}
 		}
 		effect = {
-				 	custom_tooltip = two_random_dev_zeph
-					hidden_effect = {
-			every_owned_province = {
-			limit = {
-					superregion = the_phoenix_empire
-					is_city = yes
-					development = 15
-					OR = {
-					trade_goods = grain
-					trade_goods = fish
-					trade_goods = livestock
-					trade_goods = tea
-					}			
-			}
-			add_random_development = 2
-			}					
+			custom_tooltip = two_random_dev_zeph
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						superregion = the_phoenix_empire
+						is_city = yes
+						development = 15
+						OR = {
+							trade_goods = grain
+							trade_goods = fish
+							trade_goods = livestock
+							trade_goods = tea
+						}
 					}
-
+					add_random_development = 2
+				}
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	rebuilt_cities = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			recultivate_countryside
 		}
 		position = 6
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	
-
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 10
-					superregion = the_phoenix_empire
-					is_city = yes
-					development = 30
-				}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				superregion = the_phoenix_empire
+				is_city = yes
+				development = 30
+			}
 		}
 		effect = {
 		 	custom_tooltip = new_zephy_city_tt
 			hidden_effect = {
-			every_owned_province = {
-			limit = {
-					superregion = the_phoenix_empire
-					is_city = yes
-					development = 30	
+				every_owned_province = {
+					limit = {
+						superregion = the_phoenix_empire
+						is_city = yes
+						development = 30
+					}
+					add_province_modifier = {
+						name = new_zephy_city
+						duration = -1
+					}
+				}
 			}
-			add_province_modifier = { 
-    name = new_zephy_city
-    duration = -1  
-}
-			}			
-			}
-
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	golden_free_zephyria = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			rebuilt_cities
 		}
 		position = 7
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			is_hegemon_of_type = economic_hegemon
 			hegemon_strength = 100
@@ -925,8 +775,4 @@ fs5 = {
 			extend_golden_age = 360
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 4
