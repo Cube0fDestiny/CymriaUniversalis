@@ -1,4 +1,3 @@
-##BranchStart 0
 jotnar1 = {
 	slot = 1
 	generic = no
@@ -9,28 +8,24 @@ jotnar1 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	giant_home_land = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 1
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			culture_group = ROOT
 		}
 		trigger = {
-		development_in_provinces = {
-			value = 300
-			culture_group = northern_giants
-		}	
+			development_in_provinces = {
+				value = 300
+				culture_group = northern_giants
+			}
 		}
 		effect = {
 			change_government_reform_progress = 100
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	promote_three_cities = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -38,132 +33,113 @@ jotnar1 = {
 		}
 		position = 2
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			OR = {
+				province_id = 3500
+				province_id = 3519
+				province_id = 3601
+			}
 		}
 		trigger = {
 			3500 = {
 				owned_by = ROOT
 				development = 30
-				 	fort_level = 4
-					num_of_buildings_in_province = 4
+				fort_level = 4
+				num_of_buildings_in_province = 4
 			}
-			
 			3519  = {
 				owned_by = ROOT
 				development = 30
-				 	fort_level = 4
-					num_of_buildings_in_province = 4
+				fort_level = 4
+				num_of_buildings_in_province = 4
 			}
-			
 			3601 = {
 				owned_by = ROOT
 				development = 30
-				 	fort_level = 4
+				fort_level = 4
 				num_of_buildings_in_province = 4
 			}
-			
 		}
 		effect = {
-		3500 = {
-				add_permanent_province_modifier = { 
-    name = great_city_of_giants
-    duration = -1  
-}	
-		}
-
-				3519 = {
-				add_permanent_province_modifier = { 
-    name = great_city_of_giants
-    duration = -1  
-}	
-		}
-		
-				3601 = {
-				add_permanent_province_modifier = { 
-    name = great_city_of_giants
-    duration = -1  
-}	
-		}
+			3500 = {
+				add_permanent_province_modifier = {
+					name = great_city_of_giants
+					duration = -1
+				}
+			}
+			3519 = {
+				add_permanent_province_modifier = {
+					name = great_city_of_giants
+					duration = -1
+				}
+			}
+			3601 = {
+				add_permanent_province_modifier = {
+					name = great_city_of_giants
+					duration = -1
+				}
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	unified_eco_approach = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			promote_three_cities
 		}
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			NOT = {
-			 	inflation = 5
-			}
+			NOT = { inflation = 5 }
 			monthly_income = 75
 		}
 		effect = {
 			add_years_of_income = 1
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	issue_tarrifs = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			unified_eco_approach
 		}
 		position = 4
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			OR = {
-			treasurer = 3
-			has_global_modifier_value = {
-			which = global_tax_modifier 
-			value = 0.5
-		}
+				treasurer = 3
+				has_global_modifier_value = {
+					which = global_tax_modifier
+					value = 0.5
+				}
 			}
 		}
 		effect = {
 			add_mercantilism = 5
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	a_whole_landtax = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			issue_tarrifs
 		}
 		position = 5
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			government_reform_progress = 100
 			stability = 3
 		}
 		effect = {
-			add_country_modifier = { 
+			add_country_modifier = {
 				name = giant_land_tax
 				duration = -1
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	kill_trollsnobles = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			make_trolls_usefull
 		}
 		position = 6
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			mil_power = 700
 			stability = 2
@@ -172,51 +148,52 @@ jotnar1 = {
 			add_mil_power = -700
 			add_stability = -3
 			add_legitimacy = 50
-			every_owned_province = {
-			limit = {
-			culture_group = north_trolls
+			custom_tooltip = kill_trollsnobles.tooltip
+			tooltip = {
+				random_owned_province = {
+					set_local_autonomy = 0
+					add_province_modifier = {
+						name = leader_less_trolls
+						duration = 7300 #20 years
+					}
+				}
 			}
-			 	set_local_autonomy = 0
-				add_province_modifier = { 
-				name = leader_less_trolls
-				duration = 7500
-			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture_group = north_trolls
+					}
+					set_local_autonomy = 0
+					add_province_modifier = {
+						name = leader_less_trolls
+						duration = 7300 #20 years
+					}
+				}
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	serves_of_jarls = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			kill_trollsnobles
 		}
 		position = 7
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			total_development = 1500
-
 		}
 		effect = {
-			add_country_modifier = { 
+			add_country_modifier = {
 				name = troll_servats
 				duration = -1
-			}			
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	organize_the_new_army_giant = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 9
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			army_tradition = 50
 		}
@@ -224,59 +201,47 @@ jotnar1 = {
 			add_mil_power = 100
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	isseu_new_giant_armor = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			organize_the_new_army_giant
 		}
 		position = 10
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			mil_tech = 16
 			weapons = 10
 		}
 		effect = {
-			add_country_modifier = { 
+			add_country_modifier = {
 				name = giant_armor
-				duration = 7500
-			}			
+				duration = 7300 #20 years
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	streamline_production = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			isseu_new_giant_armor
 		}
 		position = 11
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			OR = {
 				innovativeness = 30
-				army_professionalism = 0.8 
+				army_professionalism = 0.8
 			}
 			weapons = 20
 		}
 		effect = {
-			add_country_modifier = { 
+			add_country_modifier = {
 				name = cheaper_prod_giant
-				duration = 9500
+				duration = 10950 #30 years
 			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 0
-##BranchStart 1
+
 jotnar2 = {
 	slot = 2
 	generic = no
@@ -287,27 +252,21 @@ jotnar2 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	a_worthy_capital = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 1
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			is_capital_of = ROOT
 		}
 		trigger = {
-			capital_scope = {
-			development = 35
-			}
+			capital_scope = { development = 35 }
 		}
 		effect = {
 			add_stability = 1
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	a_center_of_giant_wisdom = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -315,21 +274,20 @@ jotnar2 = {
 		}
 		position = 2
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			is_capital_of = ROOT
 		}
 		trigger = {
 			capital_scope = {
-			has_building = university
-			has_building = cathedral
-			has_building = counting_house
+				has_building = university
+				has_building = cathedral
+				has_building = counting_house
 			}
 		}
 		effect = {
 			change_innovativeness = 15
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	conquer_all_trolls = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -337,13 +295,14 @@ jotnar2 = {
 		}
 		position = 3
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			culture_group = north_trolls
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			NOT = {
-			any_country = {
-			culture_group = north_trolls
-			}
+				any_country = {
+					culture_group = north_trolls
+				}
 			}
 		}
 		effect = {
@@ -353,11 +312,10 @@ jotnar2 = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}				
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	eastern_ayloria = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -365,70 +323,73 @@ jotnar2 = {
 		}
 		position = 4
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = aylorian_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-					aylorian_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			aylorian_region = { type = all country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
 			add_prestige = 40
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	make_trolls_usefull = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
-			conquer_all_trolls
+			eastern_ayloria
 		}
 		position = 5
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			culture_group = north_trolls
 		}
 		trigger = {
-		development_in_provinces = {
-			value = 300
-			culture_group = north_trolls
-		}			
+			development_in_provinces = {
+				value = 300
+				culture_group = north_trolls
+			}
 		}
 		effect = {
 			add_years_of_income = 1
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	resettle_trolls_destroy_tribe = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			make_trolls_usefull
 		}
 		position = 6
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			dip_power = 600
 			mil_power = 600
 			stability = 2
-			
 		}
 		effect = {
 			add_dip_power = -600
 			add_mil_power = -600
 			add_stability = -3
-			every_owned_province = {
-			limit = {
-			culture_group = north_trolls
-			}
+			custom_tooltip = resettle_trolls_destroy_tribe.tooltip
+			tooltip = {
 				add_province_modifier = { 
-				name = resettle_trolls
-				duration = -1
+					name = resettle_trolls
+					duration = -1
+				}
 			}
-			}			
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture_group = north_trolls
+					}
+					add_province_modifier = { 
+						name = resettle_trolls
+						duration = -1
+					}
+				}
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	no_culture_for_trolls = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -436,25 +397,26 @@ jotnar2 = {
 		}
 		position = 7
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			OR = {
+				region = jotunheim_region
+				region = sveri_region
+			}
+			culture_group = north_trolls
 		}
 		trigger = {
 			NOT = {
-			any_owned_province = {
-			culture_group = north_trolls
+				any_owned_province = {
+					culture_group = north_trolls
+				}
 			}
-			}
-			
-					jotunheim_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-								
-					sveri_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			jotunheim_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			sveri_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
 			add_stability = 3
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	grand_broden_expansion = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -462,7 +424,8 @@ jotnar2 = {
 		}
 		position = 8
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			superregion = grand_brodia
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
@@ -473,21 +436,17 @@ jotnar2 = {
 		effect = {
 			add_country_modifier = { 
 				name = master_of_broden_giant
-				duration = 3500
-			}			
+				duration = 3650 #10 years
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	secure_gunwpoder = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			organize_the_new_army_giant
 		}
 		position = 10
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			monthly_mil = 11
 		}
@@ -495,33 +454,25 @@ jotnar2 = {
 			add_army_tradition = 20
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	masters_of_siege = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			secure_gunwpoder
 		}
 		position = 11
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			num_of_artillery = 100
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = siege_amster_gia
-				duration = 7000
-			}			
+				duration = 7300 #20 years
+			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 1
-##BranchStart 2
+
 jotnar3 = {
 	slot = 3
 	generic = no
@@ -532,18 +483,16 @@ jotnar3 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	unite_giantsland = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 1
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = jotunheim_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-	jotunheim_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }				
+			jotunheim_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }				
 		}
 		effect = {
 			gyntenland_region = {
@@ -552,11 +501,10 @@ jotnar3 = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}		
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	into_gytenland = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -564,10 +512,11 @@ jotnar3 = {
 		}
 		position = 2
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = gyntenland_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-	gyntenland_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
+			gyntenland_region = { type = all country_or_non_sovereign_subject_holds = ROOT }	
 		}
 		effect = {
 			meiren_march_region = {
@@ -579,8 +528,7 @@ jotnar3 = {
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	northern_vir_con = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -588,10 +536,11 @@ jotnar3 = {
 		}
 		position = 3
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = meiren_march_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-	meiren_march_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
+			meiren_march_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
 		}
 		effect = {
 			asyloria_region = {
@@ -603,19 +552,19 @@ jotnar3 = {
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
-	asyloria_region = {
+	
+	asyloria_conquer = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			northern_vir_con
 		}
 		position = 4
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = asyloria_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-	asyloria_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
+			asyloria_region = { type = all country_or_non_sovereign_subject_holds = ROOT }	
 		}
 		effect = {
 			viria_region = {
@@ -627,19 +576,19 @@ jotnar3 = {
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	viria_conquer = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
-			asyloria_region
+			asyloria_conquer
 		}
 		position = 5
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = viria_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-	viria_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
+			viria_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
 		}
 		effect = {
 			aylor_region = {
@@ -647,12 +596,11 @@ jotnar3 = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
-				add_permanment_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	into_the_empire = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -660,7 +608,8 @@ jotnar3 = {
 		}
 		position = 6
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			superregion = empire_of_humanity
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
@@ -674,12 +623,11 @@ jotnar3 = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
-				add_permanment_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	take_arno_giant = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -687,7 +635,7 @@ jotnar3 = {
 		}
 		position = 7
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			province_id = 2396
 		}
 		trigger = {
 			owns = 2396
@@ -698,26 +646,25 @@ jotnar3 = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
-				add_permanment_claim = ROOT
+				add_permanent_claim = ROOT
 			}
-						grand_brodia = {
+			grand_brodia = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
-				add_permanment_claim = ROOT
+				add_permanent_claim = ROOT
 			}
-						gloomwood_region = {
+			gloomwood_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
-				add_permanment_claim = ROOT
+				add_permanent_claim = ROOT
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	giant_gloom = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -725,17 +672,17 @@ jotnar3 = {
 		}
 		position = 8
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = gloomwood_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-	gloomwood_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
+			gloomwood_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
 		}
 		effect = {
 			add_prestige = 50
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	the_old_gods_grave = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -745,55 +692,48 @@ jotnar3 = {
 		}
 		position = 9
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			OR = {
+				province_id = 2512
+				region = red_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			OR = {
-			AND = {
-			owns = 2512
-			NOT = {
-				has_global_flag = destroyed_grave
-			}			
-			}
-
-	red_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }				
+				AND = {
+					owns = 2512
+					NOT = { has_global_flag = destroyed_grave }			
+				}
+				red_region = { type = all country_or_non_sovereign_subject_holds = ROOT }				
 			}
 		}
 		effect = {
-			add_power_projection = { 
-			type = 25_permanent_power_projection
-			amount = 25 
-		}
+			add_power_projection = {
+				type = 25_permanent_power_projection
+				amount = 25
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	bunderblusses = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			secure_gunwpoder
 		}
 		position = 11
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			mil_tech = 20
 			army_tradition = 75
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = bunderbluss
-				duration = 7000
-			}				
+				duration = 7300 #20 years
+			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 2
-##BranchStart 3
+
 jotnar4 = {
 	slot = 4
 	generic = no
@@ -804,16 +744,10 @@ jotnar4 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	call_old_oaths = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 1
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			government_rank = 3
 			reform_level = 5
@@ -822,96 +756,76 @@ jotnar4 = {
 			add_stability = 1
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	vaetti_helper = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			call_old_oaths
 		}
 		position = 2
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	treasury = 1500
+			treasury = 1500
 		}
 		effect = {
 			add_treasury = -1500
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = vaetti
 				duration = -1
-			}						
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	awaken_draugr = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			vaetti_helper
 		}
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			  adm_power = 100
-			  dip_power = 100
-			  mil_power = 100
-			  
-			  estate_loyalty = {
-			estate = estate_nobles
-			loyalty = 65
-		}
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+			estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 65
+			}
 		}
 		effect = {
-		add_adm_power = -100
-		add_dip_power = -100
-		add_mil_power = -100
-		
-				add_country_modifier = { 
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			add_country_modifier = {
 				name = draugr
 				duration = -1
-			}			
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	willing_collebateurs = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			organize_humans
 		}
 		position = 7
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	
-		OR = {
-			employed_advisor = {
-				culture = gynter
-			}		
-		
-			employed_advisor = {
-				culture = north_gynter
-			}		
-		
-		
-			employed_advisor = {
-				culture = yvir
-			}		
-		}
-
+			OR = {
+				employed_advisor = {
+					culture = gynter
+				}
+				employed_advisor = {
+					culture = north_gynter
+				}
+				employed_advisor = {
+					culture = yvir
+				}
+			}
 		}
 		effect = {
-			  custom_tooltip = can_recruit_cavalry
+			custom_tooltip = can_recruit_cavalry
 			set_country_flag = cavalry
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	seucre_the_empire_gian = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -919,24 +833,21 @@ jotnar4 = {
 		}
 		position = 8
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			superregion = empire_of_humanity
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-				empire_of_humanity = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			empire_of_humanity = { type = all country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
-					add_country_modifier = { 
+			add_country_modifier = {
 				name = giant_furue
 				duration = -1
-			}					
+			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 3
-##BranchStart 4
+
 jotnar5 = {
 	slot = 5
 	generic = no
@@ -947,58 +858,46 @@ jotnar5 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	another_aggreement_with_werwolves = {
 		icon = mission_build_up_to_force_limit
-		required_missions {
-			
-		}
+		required_missions { }
 		position = 1
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	stability = 2
-				dip_power = 200
+			stability = 2
+			dip_power = 200
 		}
 		effect = {
-		add_dip_power = -200
-		add_stability = -1
-					add_country_modifier = { 
+			add_dip_power = -200
+			add_stability = -1
+			add_country_modifier = {
 				name = werewolves_giant
 				duration = -1
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	let_them_eat_humans = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			another_aggreement_with_werwolves
 		}
 		position = 2
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 10
 				NOT = {
-				OR = {
-				culture_group = northern_giants
-				culture_group = north_trolls
-				}
+					OR = {
+						culture_group = northern_giants
+						culture_group = north_trolls
+					}
 				}
 			}
 		}
 		effect = {
 			add_stability = 1
-			
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	our_trusted_spies_and_minions = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -1006,28 +905,25 @@ jotnar5 = {
 		}
 		position = 3
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			province_id = 3500
 		}
 		trigger = {
 			spymaster = 3
-			 	
-3500 = {
-has_great_project = {
-	type = iron_wood
-	tier = 2
-}
-}
-
+			3500 = {
+				has_great_project = {
+					type = iron_wood
+					tier = 2
+				}
+			}
 		}
 		effect = {
-					add_country_modifier = { 
+			add_country_modifier = {
 				name = werewolves_spies
 				duration = -1
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	the_horror_of_north = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
@@ -1035,115 +931,91 @@ has_great_project = {
 			awaken_draugr
 		}
 		position = 4
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			num_of_times_used_pillage_capital = 30
 			total_development = 2000
 		}
 		effect = {
-					add_country_modifier = { 
+			add_country_modifier = {
 				name = bringer_of_horror_g
 				duration = -1
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	organize_humans = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			viria_conquer
 		}
 		position = 6
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-		development_in_provinces = {
-			value = 500
-			NOT = {
-			OR = {
-				culture_group = northern_giants		
-				culture_group = north_trolls		
+			development_in_provinces = {
+				value = 500
+				NOT = {
+					OR = {
+						culture_group = northern_giants
+						culture_group = north_trolls
+					}
+				}
 			}
-			}
-
-		}	
 		}
 		effect = {
 			add_legitimacy = 25
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	issue_new_jarldoms = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			organize_humans
 		}
 		position = 7
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			government_reform_progress = 300
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = new_jarls
 				duration = -1
-			}					
+			}
 			change_government_reform_progress = -300
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	strong_quatos = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			issue_new_jarldoms
 		}
 		position = 8
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	legitimacy_equivalent = 100
-				splendor = 800
+			legitimacy_equivalent = 100
+			splendor = 800
 		}
 		effect = {
 			add_splendor = -800
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = quota
-				duration = 36500
-			}			
+				duration = 36500 #100 years
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	stratified_society = {
 		icon = mission_build_up_to_force_limit
 		required_missions {
 			strong_quatos
 		}
 		position = 9
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	power_projection = 50
+			power_projection = 50
 		}
 		effect = {
-				add_country_modifier = { 
+			add_country_modifier = {
 				name = stratified_soc
 				duration = -1
-			}	
+			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 4

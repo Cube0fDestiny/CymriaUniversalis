@@ -10,7 +10,7 @@ leader_less_trolls = {
 }
 
 giant_land_tax = {
-	global_tax_income = 0.1
+	global_tax_income = 480
 }
 
 troll_servats = {
