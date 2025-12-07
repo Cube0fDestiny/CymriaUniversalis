@@ -17,6 +17,11 @@
  avernian_palaces:0 "Avernian Palaces"
  avernian_palaces_desc:0 "A true Duke rules from a grand palace. Cause not only in war states fight but also in peace."
  
+ man_familty_subject:0 "Imperial Cadett Branch"
+ man_familty_subject_title:0 "Imperial Cadett Branch"
+ man_familty_subject_title_plural:0 "Imperial Cadett Branches"
+ man_familty_subject_is_our:0 "$NAME$ is our Cadett Branch"
+
  woes_of_war:0 "Woes of War"
  imperial_civil_war:0 "Imperial Civil War"
  imp_civil_war:0 "Start of the Imperial Civil War"
@@ -118,6 +123,15 @@
  blood_guards:0 "Blood Guards"
  demon_masters:0 "Demon Masters"
  keeper_of_light:0 "Keeper of Light"
+
+ expanded_administration:0 "Expanded Administration"
+ provincial_admin:0 "Provincial Governance"
+ imperial_arno_rule:0 "Direct Rule From Arno"
+ lichian_nobility:0 "Lichian Nobility"
+ victory_asylor:0 "Victory in Asylor"
+ imperal_conest:0 "Imperial Conquest"
+ victory_south:0 "Southern Victory"
+ southern_victory:0 "Southern Coast"
  
  eom.5.t:0 "The Price of War"
  eom.5.desc:0 "The Imperial Army is stretched thin from the many wars we waged and our inflation has gone out of controll. The whole administration has been thinned out to govern the new provinces, aquired from Broden and in the North. We need to reform before the empire can expand again."
@@ -174,6 +188,7 @@
  southern_coast_title:0 "Southern Coast"
  southern_coast_desc:0 "By the unerring will of His Imperial Majesty, protector of the realm and guardian of humanity’s destiny, let it be known: the Empire’s designs extend now to the southern shores. The lands of Jitaria and Marilia shall be brought under Imperial rule, that the Empire may secure the coasts, the sea lanes, and the wealth they hold, and that no human land remain outside the protection and order of the Crown."
  pacifiy_the_land_title:0 "Pacifiy the Land"
+ pacifiy_the_land.tooltip:0 "Every owned province: "
  pacifiy_the_land_desc:0 "By the authority of His Imperial Majesty, and for the safety and prosperity of all subjects, let it be proclaimed: the lands of the Empire shall be purged of unrest, theft, and lawless violence. No town, village, or road shall remain a haven for brigands, rioters, or thieves. Governors, magistrates, and commanders are charged to act with vigour: public order must be restored, markets secured, and travellers protected. Patrols shall be increased, garrisons reinforced where disorder persists, and the laws of the Empire enforced without favour. Those who lay down arms and submit will receive mercy in accordance with Imperial clemency; those who persist in crime shall be brought to justice. Let every citizen know that the Emperor will not tolerate lawlessness: the Crown’s justice is swift, measured, and aimed at the preservation of peace. So is this realm to be made safe again, by the hand of the Crown."
  prepare_next_expansion_title:0 "Prepare the next expansion"
  prepare_next_expansion_desc:0 "By the authority of His Imperial Majesty, let it be declared across the realm: the expansion of the Empire shall be undertaken only when our forces are more than sufficient for the task. In order that the Emperor’s will be enacted and the Empire’s borders be extended in safety and glory, a mighty and well‑disciplined army must be raised, trained, and provisioned. Henceforth the Imperial Treasury shall allocate resources for recruitment, armament, and training. Provincial levies shall be supplemented by standing regiments drawn from the cadet branches of Catricolle and other loyal provinces. Veteran cohorts shall be reorganized into permanent legions; new companies of engineers, siegecraft, and artillery shall be formed; and the Imperial Navy will be expanded to secure our coasts and supply lines. All governors, magistrates, and commanders are charged to act with haste and wisdom. The Empire marches not in haste without order, but neither will it stall while opportunity waits. Let every man of fighting age be given the chance to serve the Crown; let every craftsman be tasked to increase production of steel, cordage, and munitions; and let every port and road be readied to carry the legions to their fields of glory. So decrees the Throne. So shall it be done."
