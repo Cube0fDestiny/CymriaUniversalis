@@ -5,10 +5,10 @@ bookmark =
 	date = 1444.1.1
 	
 	country = GW8
-	country = TO1
-	country = TO2
-	country = TO3
-	country = TO4
+
+
+
+
 	country = TO5
 	country = TO6
 	country = TO7

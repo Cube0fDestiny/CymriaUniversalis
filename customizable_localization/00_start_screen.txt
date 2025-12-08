@@ -374,6 +374,13 @@ defined_text = {
     }
 	
 	#India
+	#East Asia:	
+	text = { #Ogebin
+        localisation_key = string_start_jotunheim
+        trigger = {
+			tag = GI1
+        }
+    }	
 	
 	#East Asia:	
 	text = { #Ogebin
@@ -1487,12 +1494,28 @@ defined_text = {
 	random = no
 
     text = {
+        localisation_key = string_gloom_special
+        trigger = {
+			tag = GW8
+        }
+    }
+	
+    text = {
         localisation_key = string_manchu_culture
         trigger = {
 			primary_culture = manchu
 			has_dlc = "Mandate of Heaven"
         }
     }
+	
+    text = {
+        localisation_key = string_manchu_culture
+        trigger = {
+			primary_culture = manchu
+			has_dlc = "Mandate of Heaven"
+        }
+    }
+	
 	text = {
         localisation_key = string_no_special_culture
         trigger = {

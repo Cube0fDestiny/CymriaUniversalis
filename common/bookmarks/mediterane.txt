@@ -4,6 +4,8 @@ bookmark =
 	desc = "MEDITERANE_DESC"
 	date = 1444.1.1
 	
+	country = GIS
+	country = QA6
 	country = AR1
 	country = PI6
 	country = PI4
