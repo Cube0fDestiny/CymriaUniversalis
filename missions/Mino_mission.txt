@@ -1,4 +1,3 @@
-##BranchStart 0
 mino_1 = {
 	slot = 1
 	generic = no
@@ -9,16 +8,10 @@ mino_1 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	find_the_ancient_texts = {
 		icon = mission_build_up_to_force_limit
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 1
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			university = 3
 		}
@@ -26,25 +19,21 @@ mino_1 = {
 			change_innovativeness = 10
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	discover_our_old_culture = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			find_the_ancient_texts
 		}
 		position = 2
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
- 	philosopher = 2		
+ 			philosopher = 2		
 		}
 		effect = {
 			add_prestige = 25
 		}
 	}	
-	##Mission Start
+	
 	the_grand_secret = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -52,30 +41,27 @@ mino_1 = {
 		}
 		position = 3
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			has_great_project = {
+				type = labyrinth_of_mino
+				tier = 0
+			}
 		}
 		trigger = {
-			 	
-
-has_great_project = {
-	type = labyrinth_of_mino
-	tier = 3
-}
-
- 	natural_scientist = 3
+			has_great_project = {
+				type = labyrinth_of_mino
+				tier = 3
+			}
+ 			natural_scientist = 3
 		}
 		effect = {
-			add_power_projection = { 
-	type = 25_permanent_power_projection
-	amount = 25 
-}
+			add_power_projection = {
+				type = 25_permanent_power_projection
+				amount = 25
+			}
 		}
 	}	
-	##
-	
 }
-##BranchEnd 0
-##BranchStart 1
+
 mino_2 = {
 	slot = 2
 	generic = no
@@ -86,7 +72,6 @@ mino_2 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	the_other_heirs = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -94,17 +79,12 @@ mino_2 = {
 		}
 		position = 2
 		provinces_to_highlight = {
-			
+			owner = { has_reform = beast_tribe }
 		}
 		trigger = {
-			 NOT = {
-			  	any_country = {
-				NOT = {
-				tag = ROOT
-				}
-				has_reform = beast_tribe
-				}
-			 }
+			all_known_country = {
+				NOT = { has_reform = beast_tribe }
+			}
 		}
 		effect = {
 			south_minos_area = {
@@ -120,11 +100,10 @@ mino_2 = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}			
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	defend_against_shegen = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -132,15 +111,20 @@ mino_2 = {
 		}
 		position = 3
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			OR = {
+				area = south_mino_area
+				area = south_minos_area
+				owned_by = SH0
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			OR = {
-			army_size = SH0
-			AND = {
-		south_minos_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		south_mino_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }		
-			}
+				army_size = SH0
+				AND = {
+					south_minos_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+					south_mino_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }		
+				}
 			}
 		}
 		effect = {
@@ -150,11 +134,10 @@ mino_2 = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}	
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	push_forward = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -162,11 +145,11 @@ mino_2 = {
 		}
 		position = 4
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			area = shegen_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-		shegen_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
+			shegen_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
 			seeren_region = {
@@ -178,8 +161,7 @@ mino_2 = {
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	secure_the_zervo_border = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -187,20 +169,20 @@ mino_2 = {
 		}
 		position = 5
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = seeren_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-		num_of_provinces_owned_or_owned_by_subjects_with = {
-			value = 15
-			region = seeren_region
-		}
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 15
+				region = seeren_region
+			}
 		}
 		effect = {
 			add_army_tradition = 25
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	the_river_seelen = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -208,10 +190,11 @@ mino_2 = {
 		}
 		position = 7
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			area = seelen_middle_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-		seelen_middle_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			seelen_middle_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
 			sumar_region = {
@@ -223,8 +206,7 @@ mino_2 = {
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	the_fertile_lands = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -232,29 +214,26 @@ mino_2 = {
 		}
 		position = 8
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = sumar_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-		num_of_provinces_owned_or_owned_by_subjects_with = {
-			value = 10
-			region = sumar_region
-		}
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 10
+				region = sumar_region
+			}
 		}
 		effect = {
-		add_years_of_income = 3
+			add_years_of_income = 3
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	the_grand_sea = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			the_fertile_lands
 		}
 		position = 9
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			any_owned_province = { 
 			 	has_port = yes
@@ -270,8 +249,7 @@ mino_2 = {
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	dethrone_grand_Assay = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -279,13 +257,14 @@ mino_2 = {
 		}
 		position = 10
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			region = assay_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-		num_of_provinces_owned_or_owned_by_subjects_with = {
-			value = 15
-			region = assay_region
-		}
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 15
+				region = assay_region
+			}
 		}
 		effect = {
 			baylon_region = {
@@ -297,30 +276,22 @@ mino_2 = {
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	king_of_the_universe_mino = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			dethrone_grand_Assay
 		}
 		position = 11
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 		 	total_development = 1000
 		}
 		effect = {
-			 	set_emperor_of_china = ROOT
+			set_emperor_of_china = ROOT
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 1
-##BranchStart 2
+
 mino_3 = {
 	slot = 3
 	generic = no
@@ -331,88 +302,69 @@ mino_3 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	the_crown_of_mino = {
 		icon = mission_build_up_to_force_limit
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 1
 		provinces_to_highlight = {
-				province_id = 1649
+			province_id = 1649
 		}
 		trigger = {
-		owns = 1649
+			owns = 1649
 			OR = {
-			NOT = {
-			 	exists = MI0
-			}
-			tag = MI0
+				NOT = { exists = MI0 }
+				tag = MI0
 			}
 		}
-
-
-
 		effect = {
-		custom_tooltip = all_beast_are_mine
-		hidden_effect = {
-			 	every_province = {
-				limit = {
-				owner = {
-				has_reform = beast_tribe
+			custom_tooltip = all_beast_are_mine
+			hidden_effect = {
+				every_province = {
+					limit = {
+						owner = { has_reform = beast_tribe }
+					}
+					add_permanent_claim = ROOT
 				}
-				}
-				add_permanent_claim = ROOT
-				}				
-}
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	ask_oracles = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			the_crown_of_mino
 		}
 		position = 2
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	temple = 3
-				estate_influence = {
-					estate = estate_church
-					influence = 50
-				}
+			temple = 3
+			estate_influence = {
+				estate = estate_church
+				influence = 50
+			}
 		}
 		effect = {
 			country_event = { 
-    id = the_minoan_curse.1
+				id = the_minoan_curse.1
+			}
 		}
 	}
-	}
-	##Mission End
-	##Mission Start
+	
 	atonement_to_the_defenselesss = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			ask_oracles
 		}
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			 	stability = 3
 		}
 		effect = {
 			country_event = { 
-    id = the_minoan_curse.2
+				id = the_minoan_curse.2
+			}
 		}
 	}
-	}
-	##Mission End
-	##Mission Start
+	
 	secure_the_sacred_spring = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -420,25 +372,23 @@ mino_3 = {
 		}
 		position = 4
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			province_id = 1675
 		}
 		trigger = {
-		1675 = {
-		has_great_project = {
-	type = healing_springs
-	tier = 2
-}			
-		}
-
+			1675 = {
+				has_great_project = {
+					type = healing_springs
+					tier = 2
+				}
+			}
 		}
 		effect = {
 			country_event = { 
-    id = the_minoan_curse.3
+    			id = the_minoan_curse.3
+			}
 		}
 	}
-	}
-	##Mission End
-	##Mission Start
+	
 	gahter_mages = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -446,33 +396,29 @@ mino_3 = {
 		}
 		position = 5
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			owner = {
+				ruler_has_personality = wizard
+			}
 		}
 		trigger = {
 			OR = {
-			ruler_has_personality = wizard
-			custom_trigger_tooltip = {
-			tooltip = has_ally_wizard
-			ROOT = {
-			any_ally = {
 				ruler_has_personality = wizard
-				}			
-			}			
-			}
-
-
-			
+				custom_trigger_tooltip = {
+					tooltip = has_ally_wizard
+					ROOT = {
+						any_ally = { ruler_has_personality = wizard }
+					}
+				}
 				total_development = 500
 			}
 		}
 		effect = {
 			country_event = { 
-    id = the_minoan_curse.4
+    			id = the_minoan_curse.4
+			}
 		}
 	}
-	}
-	##Mission End
-	##Mission Start
+	
 	the_destiny_of_mino = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -482,49 +428,46 @@ mino_3 = {
 		}
 		position = 6
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			OR = {
+				province_id = 1683
+				province_id = 1717
+				province_id = 1655
+			}
 		}
 		trigger = {
-		owns = 1683
-		owns = 1717
-		owns = 1655
-			 	stability = 3
-				NOT = {
-				 	average_unrest = -1
-				}
+			owns = 1683
+			owns = 1717
+			owns = 1655
+			stability = 3
+			NOT = { average_unrest = -1 }
 		}
 		effect = {
-		add_stability = -6
-		set_country_flag = the_chaos
-			country_event = { 
-    id = the_minoan_curse.5
+			add_stability = -6
+			set_country_flag = the_chaos
+			country_event = {
+				id = the_minoan_curse.5
+			}
 		}
 	}
-	}
-	##Mission End
-	##Mission Start
+	
 	wild_humans = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			the_destiny_of_mino
 		}
 		position = 7
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			stability = 2
 			had_country_flag = {
 				flag = the_chaos
-				days = 900
+				days = 1095 #3 years
 			}
 		}
 		effect = {
 			remove_country_modifier = satyr_chaos
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	the_hydra_of_the_east = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -532,37 +475,31 @@ mino_3 = {
 		}
 		position = 8
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			province_id = 1683
 		}
 		trigger = {
-		1683 = {
-num_of_units_in_province = {
-    who = ROOT
-
-    amount = 50
-}
-		}
-			owns = 1683
+			1683 = {
+				owned_by = ROOT
+				num_of_units_in_province = {
+					who = ROOT
+					amount = 50
+				}
+			}
 		}
 		effect = {
-		1683 = {
-		remove_province_modifier = the_hydra		
-		}
-
+			1683 = { remove_province_modifier = the_hydra }
 			if = {
-			limit = {
-			has_country_flag = beast_forever
+				limit = {
+					has_country_flag = beast_forever
+				}
+				add_country_modifier = {
+					name = hydra_power
+					duration = 9125 #25 years
+				}
 			}
-			add_country_modifier = { 
-				name = hydra_power
-				duration = 9000
-			}
-			}
-
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	tauros_of_the_west = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -570,31 +507,27 @@ num_of_units_in_province = {
 		}
 		position = 9
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			province_id = 1717
 		}
 		trigger = {
 		 	government_reform_progress = 100
-		owns = 1717
+			owns = 1717
 		}
 		effect = {
-		change_government_reform_progress = -100
-		1717 = {
-		remove_province_modifier = the_tauros		
-		}
-
+			change_government_reform_progress = -100
+			1717 = { remove_province_modifier = the_tauros }
 			if = {
-			limit = {
-			has_country_flag = beast_forever
-			}
-			add_country_modifier = { 
-				name = tauro_power
-				duration = 9000
-			}
+				limit = {
+					has_country_flag = beast_forever
+				}
+				add_country_modifier = {
+					name = tauro_power
+					duration = 9125 #25 years
+				}
 			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	cylops_of_the_south = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -602,36 +535,29 @@ num_of_units_in_province = {
 		}
 		position = 10
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			province_id = 1655
 		}
 		trigger = {
-				owns = 1655
-		has_leader_with = {
-			total_pips = 12
-		}
+			owns = 1655
+			has_leader_with = {
+				total_pips = 12
+			}
 		}
 		effect = {
-		1655 = {
-		remove_province_modifier = the_cyclops		
-		}
-
+			1655 = { remove_province_modifier = the_cyclops }
 			if = {
-			limit = {
-			has_country_flag = beast_forever
-			}
-			add_country_modifier = { 
-				name = cyclo_power
-				duration = 9000
-			}
+				limit = {
+					has_country_flag = beast_forever
+				}
+				add_country_modifier = {
+					name = cyclo_power
+					duration = 9125 #25 years
+				}
 			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 2
-##BranchStart 3
+
 mino_4 = {
 	slot = 4
 	generic = no
@@ -642,28 +568,21 @@ mino_4 = {
 	}
 	has_country_shield = yes
 	
-	##Mission Start
 	gather_the_herds = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			the_crown_of_mino
 		}
 		position = 2
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			grown_by_development = 25
-			NOT = {
-			 	average_autonomy = 10
-			}
+			NOT = { average_autonomy = 10 }
 		}
-			effect = {
-	add_years_of_income = 1
+		effect = {
+			add_years_of_income = 1
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	sow_the_fields = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -671,23 +590,24 @@ mino_4 = {
 		}
 		position = 3
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			owned_by = ROOT
+			trade_goods = grain
+			is_prosperous = no
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 10 # how many provinces should be owned in the areas below
+				value = 10
 				OR = {
 					trade_goods = grain
 					is_prosperous = yes
 				}
-		}
+			}
 		}
 		effect = {
 			add_yearly_manpower = 2
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	fish_the_fish = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -695,7 +615,8 @@ mino_4 = {
 		}
 		position = 4
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
+			trade_goods = fish
+			owned_by = ROOT
 		}
 		trigger = {
 			trade_goods_produced_amount = {
@@ -704,78 +625,65 @@ mino_4 = {
 			}
 		}
 		effect = {
-		
-		custom_tooltip = all_fish_get_more
-		hidden_effect = {
-			every_owned_province = { 
-			limit = {
-			trade_goods = fish
+			custom_tooltip = all_fish_get_more
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						trade_goods = fish
+					}
+					add_base_production = 1
+					add_base_tax = 1
+				}
 			}
-			add_base_production = 1
-			add_base_tax = 1
-			}			
-}
-				
-
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	rebuild_the_cities = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			fish_the_fish
 		}
 		position = 5
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 3 # how many provinces should be owned in the areas below
-				
+				value = 3
 				development = 20
-		}
+			}
 		}
 		effect = {
-				every_owned_province = { 
-			limit = {
-			development = 20
-			}
-			add_prosperity = 100
+			every_owned_province = {
+				limit = {
+					development = 20
+				}
+				add_prosperity = 100
 			}
 			add_adm_power = 100
-			add_country_modifier = { 
-			name = new_city
-			duration = 3265
-		}
+			add_country_modifier = {
+				name = new_city
+				duration = 3650 #10 years
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	the_grey_prophet = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			the_destiny_of_mino
 		}
 		position = 7
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
-			 	grown_by_development = 250
-				government_rank = 2
+			grown_by_development = 250
+			government_rank = 2
 		}
 		effect = {
-		set_country_flag = the_prophet_mino
-			add_country_modifier = { 
-			name = grey_advice
-			duration = 3265
-		}
+			set_country_flag = the_prophet_mino
+			add_country_modifier = {
+				name = grey_advice
+				duration = 3650 #10 years
+			}
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	akna_the_black = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -783,29 +691,31 @@ mino_4 = {
 		}
 		position = 8
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
-		trigger = {
-		
-		custom_trigger_tooltip  = {
-		tooltip = kill_all_circe
-			NOT = {
-			 	any_country = {
-					religious_school = {
-			group = moon_faith
-			school = circe_the_loyal
-			
-		}
+			owner = {
+				religious_school = {
+					group = moon_faith
+					school = circe_the_loyal
 				}
 			}
+		}
+		trigger = {
+			custom_trigger_tooltip  = {
+				tooltip = kill_all_circe
+				NOT = {
+					any_country = {
+						religious_school = {
+							group = moon_faith
+							school = circe_the_loyal
+						}
+					}
+				}
 			}
 		}
 		effect = {
 			add_mil_power = 100
 		}
 	}
-	##Mission End
-	##Mission Start
+	
 	the_ring_giver = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
@@ -813,36 +723,36 @@ mino_4 = {
 		}
 		position = 9
 		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
-		trigger = {
-				custom_trigger_tooltip  = {
-						tooltip = kill_all_arakan
-			NOT = {
-			 	any_country = {
-					religious_school = {
-			group = moon_faith
-			school = arakan_the_black
-			
-		}
+			owner = {
+				religious_school = {
+					group = moon_faith
+					school = arakan_the_black
 				}
 			}
+		}
+		trigger = {
+			custom_trigger_tooltip  = {
+				tooltip = kill_all_arakan
+				NOT = {
+					any_country = {
+						religious_school = {
+							group = moon_faith
+							school = arakan_the_black
+						}
+					}
+				}
 			}
 		}
 		effect = {
-			 	add_ruler_personality = immortal_personality
-			add_ruler_modifier = { 
+			add_ruler_personality = immortal_personality
+			add_ruler_modifier = {
 				name = ring_wielder
-				duration = -1  
+				duration = -1
 			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 3
-##BranchStart 4
+
 mino_5 = {
 	slot = 5
 	generic = no
@@ -855,13 +765,8 @@ mino_5 = {
 
 	better_not_be_alone = {
 		icon = mission_build_up_to_force_limit
-		required_missions =  {
-			
-		}
+		required_missions =  { }
 		position = 1
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			num_of_allies = 3
 		}
@@ -876,9 +781,6 @@ mino_5 = {
 			better_not_be_alone
 		}
 		position = 2
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = building_alliances.tooltip
@@ -908,26 +810,20 @@ mino_5 = {
 			power_of_friendship
 		}
 		position = 3
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			num_of_trusted_allies = 2
 		}
 		effect = {
-			 	add_dip_power = 100
+			add_dip_power = 100
 		}
 	}	
-	##Mission Start
+	
 	praise_the_moon = {
 		icon = mission_build_up_to_force_limit
 		required_missions =  {
 			the_grey_prophet
 		}
 		position = 8
-		provinces_to_highlight = {
-			##PROVINCESHIGHLIGHTCODE
-		}
 		trigger = {
 			temple = 50
 		}
@@ -938,8 +834,4 @@ mino_5 = {
 			}
 		}
 	}
-	##Mission End
-	##
-	
 }
-##BranchEnd 4
